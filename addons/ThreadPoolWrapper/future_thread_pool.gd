@@ -1,6 +1,6 @@
 class_name FutureThreadPool
 extends Node
-# A thread pool designed to perform your tasks efficiently
+# A thread pool designed to perform your tasks efficiently 
 # Not independet from thread pool manager
 # originally from the ThreadPool plugin for godot from the asset lib
 
