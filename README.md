@@ -13,7 +13,7 @@ load_scene_with_interactive() is by desgin ment to run once per time don't use i
 # Goals:
 1. make join more reliable
 
-2. add unitest
+2. add unit tests
 
 # ThreadPool Features:
 task time limit
