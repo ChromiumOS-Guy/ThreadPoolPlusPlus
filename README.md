@@ -16,7 +16,6 @@ load_scene_with_interactive() is by desgin ment to run once per time don't use i
 2. add unitest
 
 # ThreadPool Features:
-
 task time limit
 
 variable thread count
