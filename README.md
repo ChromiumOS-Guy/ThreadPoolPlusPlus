@@ -1,7 +1,7 @@
 # ThreadPoolPlusPlus
 A full fledged GDScript thread pool with all the features you'll (probably) need
 
-Warnings:
+WARNINGS:
 
 thread_pool_manager.gd is an autoload remember to set it as such
 
