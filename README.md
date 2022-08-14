@@ -24,19 +24,19 @@ ThreadPoolManager.gd functions:
 # # get functions:
 
 # get_task_queue_as_immutable():
-```diff
+```GDScript
 get_task_queue_as_immutable(immutable: bool = true)
 ```
 if turned off it will give the task queue in mutable form not recommended
 
 # get_pending_queue_as_immutable():
-```diff
+```GDScript
 get_pending_queue_as_immutable(immutable: bool = true)
 ```
 if turned off it will give the pending queue in mutable form not recommended
 
 # get_threads_as_immutable() should only be used for debugging purposes !!!:
-```diff
+```GDScript
 get_threads_as_immutable(immutable: bool = true)
 ```
 if turned off it will give the thread array in mutable form really really not recommended
@@ -46,7 +46,7 @@ if turned off it will give the thread array in mutable form really really not re
 # # normal functions:
 
 # join():
-```diff
+```GDScript
 join(identifier, by: String = "task")
 ```
 when called will "block" the thread from doing anything until a task is finished or cancelled
@@ -61,7 +61,7 @@ use example 2: join("the_task_tag","task_tag")
 will return err when finished err == "OK" is success , err == "OK_CANCEL" is success but task that has been joined got cancelled
 
 # submit_task():
-```diff
+```GDScript
 submit_task(instance: Object, method: String, parameter,task_tag : String ,time_limit : float = task_time_limit, priority:int = default_priority) 
 ```
 submit tasks like normal,
@@ -76,7 +76,7 @@ use example: submit_task(self, "very_important_function",data,"important_task",1
 , 0 is highest priority (theres no limit to lowest priority)
 
 # submit_task_as_parameter():
-```diff
+```GDScript
 submit_task_as_parameter(instance: Object, method: String, parameter,task_tag : String, time_limit : float = task_time_limit, priority:int = default_priority)
 ```
 like submit_task() but gives the selected method the task as self, allowing said method to change things about its task 
@@ -84,7 +84,7 @@ like submit_task() but gives the selected method the task as self, allowing said
 method example: func said_method(userdata, task)
 
 # submit_task_unparameterized():
-```diff
+```GDScript
 submit_task_unparameterized(instance: Object, method: String, task_tag : String, time_limit : float = task_time_limit, priority:int = default_priority) 
 ```
 like submit_task() but without any parameters
@@ -98,13 +98,13 @@ use example: submit_task(self, "very_important_function","important_task",10000,
 , 0 is highest priority (theres no limit to lowest priority)
 
 # submit_task_array_parameterized():
-```diff
+```GDScript
 submit_task_array_parameterized(instance: Object, method: String, parameter: Array,task_tag : String, time_limit : float = task_time_limit, priority:int = default_priority)
 ```
 like submit_task() but uses callv () instead of call()
 
 # submit_task_as_only_parameter():
-```diff
+```GDScript
 submit_task_as_only_parameter(instance: Object, method: String ,task_tag : String, time_limit : float = task_time_limit, priority:int = default_priority)
 ```
 like submit_task_unparameterized() but sends task as only parameter 
@@ -112,13 +112,13 @@ like submit_task_unparameterized() but sends task as only parameter
 method example: func said_method(task)
 
 # submit_task_unparameterized_if_no_parameter():
-```diff
+```GDScript
 submit_task_unparameterized_if_no_parameter(instance: Object, method: String, task_tag : String,parameter = null, time_limit : float = task_time_limit, priority:int = default_priority) 
 ```
 like submit_task() but if parameter is equal to null it uses submit_task_unparameterized() instead of submit_task()
 
 # load_scene_with_interactive():
-```diff
+```GDScript
 load_scene_with_interactive(path, task_tag : String, print_to_console = true ,time_limit : float = task_time_limit, priority:int = 0) 
 ```
 uses ResourceLoader.load_interactive() to load your scene async while also updating the task's task.progress and it returns task so you can hook it up to a loading screen
