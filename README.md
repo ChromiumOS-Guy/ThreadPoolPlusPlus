@@ -5,9 +5,9 @@ Youtube Playlist:
 
 https://www.youtube.com/watch?v=9Khs5F1jXp4&list=PLTgk34QEf4QVybQcZEzLNUR2XGqKu9yyA
 
-Link to Godot AssetLib plugin:
+Link to Godot AssetLib plugin (current version):
 
-https://godotengine.org/asset-library/asset/1422 (outdated wating for moderators to accept a diffrent commit)
+https://godotengine.org/asset-library/asset/1422
 
 WARNINGS:
 
