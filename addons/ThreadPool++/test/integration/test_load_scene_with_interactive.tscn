@@ -1,0 +1,10 @@
+[gd_scene format=2]
+
+[node name="Node" type="Node"]
+
+[node name="Label" type="Label" parent="."]
+margin_left = 175.0
+margin_top = 81.0
+margin_right = 804.0
+margin_bottom = 452.0
+text = "Its Just a Placeholder don't use"
