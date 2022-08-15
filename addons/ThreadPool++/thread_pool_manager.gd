@@ -13,7 +13,6 @@ var default_priority: int = 100
 func _ready():
 	__start_pool()
 
-
 func __start_pool():
 	pool.__thread_count = thread_count
 	pool.no_timer_thread = no_timer_thread
@@ -60,14 +59,14 @@ func submit_task_as_only_parameter(instance: Object, method: String ,task_tag : 
 func submit_task_unparameterized_if_no_parameter(instance: Object, method: String, task_tag : String,parameter = null, time_limit : float = task_time_limit, priority:int = default_priority):
 	return pool.submit_task_unparameterized_if_no_parameter(instance, method, parameter ,task_tag, time_limit, priority)
 
-func load_scene_with_interactive(path, task_tag : String, print_to_console = true ,time_limit : float = task_time_limit, priority:int = 0):
+func load_scene_with_interactive(path, task_tag : String, print_to_console = true ,time_limit : float = task_time_limit, priority:int = 0, do_not_switch_to_scene = false):
 	if path.get_extension() == "":
 		print("the path provided has no file extension")
 		return
 	elif path.get_extension() != "tscn":
 		print("the file provided is not a scene file (.tscn)")
 		return
-	return pool.submit_task_as_parameter(self, "__load_scene_interactive",[path, print_to_console] ,task_tag, time_limit, priority)
+	return pool.submit_task_as_parameter(self, "__load_scene_interactive",[path, print_to_console, do_not_switch_to_scene] ,task_tag, time_limit, priority)
 
 
 # execution phase
@@ -77,6 +76,7 @@ func __load_scene_interactive(data, task): # handels polling and scene switching
 		var loader = ResourceLoader.load_interactive(data[0])
 		var path = data[0]
 		var print_to_console = data[1]
+		var do_not_switch_to_scene = data[2]
 		if loader == null and task.target_argument == null: # complains about invalid paths
 			print("Resource loader unable to load the resource at path")
 			return
@@ -85,6 +85,10 @@ func __load_scene_interactive(data, task): # handels polling and scene switching
 			var err = loader.poll()
 			if err == ERR_FILE_EOF:
 				#Loading Complete
+				if do_not_switch_to_scene:
+					task.progress = 100
+					OS.delay_msec(100)
+					break
 				var autoload_prop_start = "autoload/"
 				var singletons: = []
 				for i in ProjectSettings.get_property_list(): # magic i copy pasted this from here https://github.com/godotengine/godot-proposals/issues/3705
