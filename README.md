@@ -10,11 +10,6 @@ thread_pool_manager.gd is an autoload remember to set it as such
 
 load_scene_with_interactive() is by desgin ment to run once per time don't use in parallel if you do, expext unexpected behavor and crashes
 
-# Goals:
-1. make join more reliable
-
-2. add unit tests with GUT (Godot Unit Test: https://github.com/bitwes/Gut)
-
 # ThreadPool Features:
 task time limit
 
