@@ -126,14 +126,15 @@ like submit_task() but if parameter is equal to null it uses submit_task_unparam
 
 # load_scene_with_interactive():
 ```GDScript
-load_scene_with_interactive(path, task_tag : String, print_to_console = true ,time_limit : float = task_time_limit, priority:int = 0) 
+load_scene_with_interactive(path, task_tag : String, print_to_console = true ,time_limit : float = task_time_limit, priority:int = 0, do_not_switch_to_scene = false)
 ```
 uses ResourceLoader.load_interactive() to load your scene async while also updating the task's task.progress and it returns task so you can hook it up to a loading screen
 
-use example: load_scene_with_interactive("path_to_level.tscn","task_tag", false , 100000 , 0)
+use example: load_scene_with_interactive("path_to_level.tscn","task_tag", false , 100000 , 0, false)
 
 "path_to_level.tscn" is the level path
 , "task_tag" is the task.tag
 , false is print_to_console
 , 100000 is the time limit in milliseconds
 , 0 is highest priority (theres no limit to lowest priority)
+, false is the do_not_switch_to_scene (useful for debugging)
