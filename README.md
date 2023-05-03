@@ -1,6 +1,4 @@
-# postponed until further notice
-
-Due to a predicament I won't be able to work on this project for a while
+# Deprecated Godot 4 has introduced a thread pool
 
 # ThreadPoolPlusPlus 
 A full fledged GDScript thread pool with all the features you'll (probably) need
